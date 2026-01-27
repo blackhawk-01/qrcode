@@ -126,8 +126,19 @@
     </footer>
 
   <script>
+    // --- SUPORTE A QUERY (?serial=XXX) E PATH (/XXX) ---
+    let serial = null;
+
     const params = new URLSearchParams(window.location.search);
-    const serial = params.get('serial');
+    if (params.get('serial')) {
+      serial = params.get('serial');
+    } else {
+      const path = window.location.pathname.split('/').filter(Boolean);
+      serial = path[path.length - 1];
+      if (serial === 'qrcode' || serial === 'index.html') {
+        serial = null;
+      }
+    }
 
     if (serial) {
       document.getElementById('serial').textContent = serial;
@@ -136,5 +147,4 @@
   </script>
   </div>
 </body>
-
 </html>
