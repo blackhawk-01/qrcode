@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Este dispositivo pertence á empresa Laboratorio Biovet Ltda| Suporte</title>
+  <title>Este dispositivo pertence á empresa Laboratorio Biovet Ltda | Suporte</title>
+
   <style>
     body {
       margin: 0;
@@ -39,46 +40,61 @@
       margin-bottom: 20px;
     }
 
-    .highlight {
-      font-weight: bold;
-      color: #a87c27;
+    /* ÁREA TELEFONE + SUPORTE */
+    .phone-area {
+      display: flex;
+      flex-direction: column; /* MOBILE FIRST */
+      gap: 15px;
+      margin-top: 25px;
     }
 
     .phone {
       font-size: 1.4rem;
       font-weight: bold;
-      margin: 15px 0 25px;
     }
 
-    .actions {
-      display: grid;
-      gap: 15px;
-      margin-top: 30px;
+    .phone a {
+      color: #a87c27;
+      text-decoration: none;
     }
 
-    a.button {
-      display: block;
+    .support-btn {
+      width: 100%;
       padding: 15px;
       border-radius: 12px;
       background: linear-gradient(135deg, #a87c27, #c89b3c);
       color: #1a1a1a;
       text-decoration: none;
       font-weight: bold;
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
       transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
 
-    a.button:hover {
+    .support-btn:hover {
       transform: translateY(-2px);
       box-shadow: 0 10px 20px rgba(168, 124, 39, 0.45);
     }
 
-    footer {
-      margin-top: 30px;
-      font-size: 0.8rem;
-      opacity: 0.8;
+    /* DESKTOP */
+    @media (min-width: 600px) {
+      .phone-area {
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .support-btn {
+        width: auto;
+        padding: 12px 22px;
+      }
     }
   </style>
 </head>
+
 <body>
   <div class="container">
     <h1>Este dispositivo pertence á empresa Laboratorio Biovet Ltda</h1>
@@ -93,37 +109,27 @@
     <p>
       Olá, esperamos que você esteja bem.
       <br /><br />
-      Caso você não seja o proprietario ou  tenha acessado este site por ter encontrado este dispositivo,
-      pedimos gentilmente que entre em contato conosco imediatamente,pois o mesmo é rastreado.
+      Caso você não seja o proprietário ou tenha acessado este site por ter encontrado este dispositivo,
+      pedimos gentilmente que entre em contato conosco imediatamente, pois o mesmo é rastreado.
     </p>
 
     <p>
       Caso precise confirmar informações adicionais, nossa equipe poderá validar os dados do equipamento automaticamente.
     </p>
 
-    <div class="phone">
-      📞 <a href="tel:+551141588200" style="color:#a87c27; text-decoration:none;">(11) 4158-8200</a>
-    </div>
+    <!-- TELEFONE + SUPORTE -->
+    <div class="phone-area">
+      <div class="phone">
+        📞 <a href="tel:+551141588200">(11) 4158-8200</a>
+      </div>
 
-    <hr style="border: none; height: 1px; background: rgba(255,255,255,0.2); margin: 30px 0;" />
-
-    <p>
-      Se você é o usuário deste dispositivo e precisa de suporte técnico,
-      clique no botão abaixo para abrir um chamado.
-      Nossa equipe irá atendê-lo o mais rápido possível.
-    </p>
-
-    <div class="actions">
-      <a class="button" href="https://suporte.vaxxinova.ind.br/" target="_blank">
-          Abrir Chamado de Suporte
+      <a class="support-btn"
+         href="https://suporte.vaxxinova.ind.br/front/ticket.php"
+         target="_blank">
+        🛠️ SUPORTE
       </a>
     </div>
-
-    <footer>
-      ⚠️ Este dispositivo é monitorado e pertence a empresa Vaxxinova Ltda
-      <br />
-      Caso tenha sido encontrado, agradecemos sua colaboração.
-    </footer>
+  </div>
 
   <script>
     // --- SUPORTE A QUERY (?serial=XXX) E PATH (/XXX) ---
@@ -145,10 +151,5 @@
       document.getElementById('serial-box').style.display = 'block';
     }
   </script>
-  </div>
 </body>
 </html>
-
-
-
-
